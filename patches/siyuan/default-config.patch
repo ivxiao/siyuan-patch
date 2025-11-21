@@ -43,3 +43,16 @@ index ebd1002acf907e4afb3524fe5adcf672a850646b..1df2f4761587468cadf8f6d435738367
  		StatusBar:           &util.StatusBar{},
  	}
  }
+
+diff --git a/app/stage/auth.html b/app/stage/auth.html
+index a06b4b747..52a484308 100644
+--- a/app/stage/auth.html
++++ b/app/stage/auth.html
+@@ -21,6 +21,7 @@
+             --b3-theme-background: #fff;
+             --b3-theme-on-background: #202124;
+             --b3-theme-on-primary: #fff;
++            background: #fff;
+         }
+ 
+         .dark {
