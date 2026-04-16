@@ -2,16 +2,16 @@ diff --git forkSrcPrefix/kernel/model/cloud_service.go forkDstPrefix/kernel/mode
 index 8b502e03e..5dc797ee7 100644
 --- forkSrcPrefix/kernel/model/cloud_service.go
 +++ forkDstPrefix/kernel/model/cloud_service.go
-@@ -542,7 +542,7 @@ var (
+@@ -541,7 +541,7 @@ var (
  	errRequestUserFailed = errors.New("request user failed")
  )
  
 -func getUser(token string) (*conf.User, error) {
 +func getUserOrigin(token string) (*conf.User, error) {
- 	result := map[string]interface{}{}
+ 	result := map[string]any{}
  	request := httpclient.NewCloudRequest30s()
  	resp, err := request.
-@@ -577,6 +577,35 @@ func getUser(token string) (*conf.User, error) {
+@@ -574,6 +574,35 @@ func getUser(token string) (*conf.User, error) {
  	return user, nil
  }
  
@@ -45,5 +45,5 @@ index 8b502e03e..5dc797ee7 100644
 +}
 +
  func UseActivationcode(code string) (err error) {
- 	code = strings.TrimSpace(code)
  	code = util.RemoveInvalid(code)
+ 	requestResult := gulu.Ret.NewResult()
