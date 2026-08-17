@@ -1,8 +1,8 @@
 diff --git forkSrcPrefix/kernel/api/setting.go forkDstPrefix/kernel/api/setting.go
-index 309405334..fbf6c3c18 100644
+index a67710b..776b327 100644
 --- forkSrcPrefix/kernel/api/setting.go
 +++ forkDstPrefix/kernel/api/setting.go
-@@ -839,7 +839,7 @@ func getPublish(c *gin.Context) {
+@@ -958,7 +958,7 @@ func getPublish(c *gin.Context) {
  	}
  }
 
@@ -11,7 +11,7 @@ index 309405334..fbf6c3c18 100644
  	ret := gulu.Ret.NewResult()
  	defer c.JSON(http.StatusOK, ret)
 
-@@ -861,6 +861,48 @@ func getCloudUser(c *gin.Context) {
+@@ -980,6 +980,48 @@ func getCloudUser(c *gin.Context) {
  	ret.Data = model.Conf.GetUser()
  }
 
@@ -61,11 +61,11 @@ index 309405334..fbf6c3c18 100644
  	ret := gulu.Ret.NewResult()
  	defer c.JSON(http.StatusOK, ret)
 diff --git forkSrcPrefix/kernel/model/cloud_service.go forkDstPrefix/kernel/model/cloud_service.go
-index 5bd67a489..19acd4a2c 100644
+index 4684c8a..a359de2 100644
 --- forkSrcPrefix/kernel/model/cloud_service.go
 +++ forkDstPrefix/kernel/model/cloud_service.go
-@@ -333,6 +333,10 @@ func refreshAnnouncement() {
- func RefreshUser(token string) {
+@@ -337,6 +337,10 @@ func RefreshUser(token string) {
+ 	}
  	threeDaysAfter := util.CurrentTimeMillis() + 1000*60*60*24*3
  	if "" == token {
 +		if user := Conf.GetUser(); nil != user && "token" == user.UserToken {
@@ -75,7 +75,7 @@ index 5bd67a489..19acd4a2c 100644
  		user := Conf.GetUser()
  		if nil == user && "" != Conf.UserData {
  			user = loadUserFromConf()
-@@ -359,6 +363,10 @@ func RefreshUser(token string) {
+@@ -366,6 +370,10 @@ func RefreshUser(token string) {
  		return
  	}
 
