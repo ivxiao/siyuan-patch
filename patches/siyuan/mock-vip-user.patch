@@ -1,8 +1,8 @@
 diff --git forkSrcPrefix/kernel/api/setting.go forkDstPrefix/kernel/api/setting.go
-index edebd0d294b5673e4c5165712ccaa880cd1d9325..14c38fc3d5e0a0561fbcbc07885e4eb5b43ac906 100644
+index 309405334..fbf6c3c18 100644
 --- forkSrcPrefix/kernel/api/setting.go
 +++ forkDstPrefix/kernel/api/setting.go
-@@ -782,7 +782,7 @@ func getPublish(c *gin.Context) {
+@@ -839,7 +839,7 @@ func getPublish(c *gin.Context) {
  	}
  }
 
@@ -11,7 +11,7 @@ index edebd0d294b5673e4c5165712ccaa880cd1d9325..14c38fc3d5e0a0561fbcbc07885e4eb5
  	ret := gulu.Ret.NewResult()
  	defer c.JSON(http.StatusOK, ret)
 
-@@ -804,6 +804,48 @@ func getCloudUser(c *gin.Context) {
+@@ -861,6 +861,48 @@ func getCloudUser(c *gin.Context) {
  	ret.Data = model.Conf.GetUser()
  }
 
@@ -61,7 +61,7 @@ index edebd0d294b5673e4c5165712ccaa880cd1d9325..14c38fc3d5e0a0561fbcbc07885e4eb5
  	ret := gulu.Ret.NewResult()
  	defer c.JSON(http.StatusOK, ret)
 diff --git forkSrcPrefix/kernel/model/cloud_service.go forkDstPrefix/kernel/model/cloud_service.go
-index 6b31fa921067..545706d0e 100644
+index 5bd67a489..19acd4a2c 100644
 --- forkSrcPrefix/kernel/model/cloud_service.go
 +++ forkDstPrefix/kernel/model/cloud_service.go
 @@ -333,6 +333,10 @@ func refreshAnnouncement() {
